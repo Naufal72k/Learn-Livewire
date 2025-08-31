@@ -4,16 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
 
-    <title>{{ $title ?? 'Page Title' }}</title>
+    <title>{{ $title ?? 'Hotel App' }}</title>
 </head>
 
 <body>
     <nav>
-        <a href="/counter">counter</a>
-        <a href="/create-post">created-post</a>
-        <a href="/show-post">show-post</a>
+        <a wire:navigate href="/test/nopal">test</a>
+        <a wire:navigate href="/about">about</a>
+        <a wire:navigate href="/contact">contact</a>
     </nav>
     {{ $slot }}
 </body>
