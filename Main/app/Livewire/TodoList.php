@@ -2,15 +2,33 @@
 
 namespace App\Livewire;
 
+use App\Models\Task;
 use Livewire\Component;
 
 class TodoList extends Component
 {
-    public $tasks = [
-        ['id' => 1, 'title' => 'Belajar Livewire' , 'done' => false],
-        ['id' => 2, 'title' => 'Ngoding To-do list' , 'done' => true],
-        ['id' => 3, 'title' => 'ngopi dulu' , 'done' => false]
-    ];
+    public $tasks;
+    public $title;
+
+    public function mount(){
+        $this->tasks = Task::all();
+    }
+
+    public function addTask(){
+        $this->validate([
+            'title' => 'required|min:3'
+        ]);
+
+        Task::create([
+            'title' => $this->title,
+            'done' => false
+
+
+        ]);
+
+        $this->title = ' ';
+        $this->tasks = Task::all();
+    }
     public function render()
     {
 
