@@ -29,6 +29,10 @@ class TodoList extends Component
         $this->title = ' ';
         $this->tasks = Task::all();
     }
+
+    public function deleteTask($index){
+        Task::find($index)->delete();
+    }
     public function render()
     {
 
