@@ -6,20 +6,13 @@
         <button type="submit">Tambah</button>
     </form>
 
-    <ul class="list-disc pl-6">
+    <ul class="space-y-2">
         @foreach ($tasks as $task)
-            <li>{{ $task->title }}
-                @if ($task->done)
-                    ✅
-                @else
-                    ⌛
-                @endif
+            <li class="flex justify-between items-center bg-gray-100 p-2 rounded">
+                <span>{{ $task->title }}</span>
+                <button wire:click="deleteTask({{ $task->id }})"
+                    class=" bg-red-500 text-white px-2 py-1 rounded text-sm">delete</button>
             </li>
-        @endforeach
-    </ul>
-    <ul>
-        @foreach ($tasks as $task)
-            <li>{{ $task }}</li>
         @endforeach
     </ul>
 </div>
