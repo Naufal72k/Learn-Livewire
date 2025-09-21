@@ -32,6 +32,8 @@ class TodoList extends Component
 
     public function deleteTask($index){
         Task::find($index)->delete();
+
+        $this->tasks = Task::all();
     }
     public function render()
     {
