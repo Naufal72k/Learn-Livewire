@@ -17,7 +17,9 @@ class MahasiswaFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nama'=> $this->faker->name(),
+            'nim'=> $this->faker->unique()->numerify('F1D023####'),
+            'jurusan'=>$this->faker->randomElement(['TI','SI','Manajemen'])
         ];
     }
 }
